@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/draft-publish/{draftId}', 'Sylapi\NovaDrafts\Http\DraftController@publishDraft');
 Route::post('/draft-unpublish/{draftId}', 'Sylapi\NovaDrafts\Http\DraftController@unpublishDraft');
+Route::post('/draft-discard/{draftId}', 'Sylapi\NovaDrafts\Http\DraftController@discardDraft');

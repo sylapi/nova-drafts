@@ -64,4 +64,18 @@ class DraftController extends Controller
 
         return response('', 204);
     }
+
+
+    public function discardDraft($draftId, Request $request)
+    {
+        $draftClass = $request->input('class');
+
+        $draftDelete = $draftClass::find($draftId);
+
+        if (empty($draftDelete)) return response()->json(['error' => 'model_not_found'], 404);
+
+        $draftDelete->forceDelete();
+
+        return response()->json('', 200);
+    }
 }
