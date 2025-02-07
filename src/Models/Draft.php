@@ -24,13 +24,12 @@ class Draft extends Model
             $newResource->published = false;
             $newResource->draft_parent_id = $data->id;
             $newResource->preview_token = Str::random(20);
-            $newResource->save();
-            return false;
+            return $newResource;
         }
 
         $data->published = false;
         $data->preview_token = Str::random(20);
-        return true;
+        return $data;
     }
 
     public static function childDraft($class, $id)
